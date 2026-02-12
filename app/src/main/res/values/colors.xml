@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Moody theme colors -->
+    <color name="moody_primary">#FF6B9CE3</color>
+    <color name="moody_primary_dark">#FF4A7FCC</color>
+    <color name="moody_secondary">#FFF2A65A</color>
+    <color name="moody_background">#FFF5F5F5</color>
+    <color name="moody_surface">#FFFFFFFF</color>
 </resources>

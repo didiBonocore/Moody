@@ -14,7 +14,31 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Mood buttons -->
+    <!-- Mood buttons: row 1 (3 buttons) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnVeryHappy"
+            style="@style/MoodButton"
+            android:text="😄"/>
+
+        <Button
+            android:id="@+id/btnHappy"
+            style="@style/MoodButton"
+            android:text="😊"/>
+
+        <Button
+            android:id="@+id/btnNeutral"
+            style="@style/MoodButton"
+            android:text="😐"/>
+
+    </LinearLayout>
+
+    <!-- Mood buttons: row 2 (2 buttons) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,49 +47,14 @@
         android:layout_marginBottom="16dp">
 
         <Button
-            android:id="@+id/btnVeryHappy"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:text="😄"
-            android:textSize="32sp"
-            android:layout_margin="4dp"/>
-
-        <Button
-            android:id="@+id/btnHappy"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:text="😊"
-            android:textSize="32sp"
-            android:layout_margin="4dp"/>
-
-        <Button
-            android:id="@+id/btnNeutral"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:text="😐"
-            android:textSize="32sp"
-            android:layout_margin="4dp"/>
-
-        <Button
             android:id="@+id/btnSad"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:text="😟"
-            android:textSize="32sp"
-            android:layout_margin="4dp"/>
+            style="@style/MoodButton"
+            android:text="😟"/>
 
         <Button
             android:id="@+id/btnVerySad"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:text="😢"
-            android:textSize="32sp"
-            android:layout_margin="4dp"/>
+            style="@style/MoodButton"
+            android:text="😢"/>
 
     </LinearLayout>
 

@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moody.R
 import com.example.moody.data.MoodEntry
 
-class MoodAdapter : RecyclerView.Adapter<MoodAdapter.MoodViewHolder>() {
+class MoodAdapter(
+    private val onItemClick: (MoodEntry) -> Unit
+) : RecyclerView.Adapter<MoodAdapter.MoodViewHolder>() {
 
     private var moods = emptyList<MoodEntry>()
 
@@ -32,7 +34,6 @@ class MoodAdapter : RecyclerView.Adapter<MoodAdapter.MoodViewHolder>() {
         holder.moodEmoji.text = mood.emoji
         holder.moodType.text = formatMoodType(mood.moodType)
 
-        // Format timestamp (e.g., "2 hours ago")
         val timeAgo = DateUtils.getRelativeTimeSpanString(
             mood.timestamp,
             System.currentTimeMillis(),
@@ -40,12 +41,16 @@ class MoodAdapter : RecyclerView.Adapter<MoodAdapter.MoodViewHolder>() {
         )
         holder.moodTimestamp.text = timeAgo
 
-        // Show note if exists, hide if empty
         if (mood.note.isNotEmpty()) {
             holder.moodNote.visibility = View.VISIBLE
             holder.moodNote.text = mood.note
         } else {
             holder.moodNote.visibility = View.GONE
+        }
+
+        // Explicit intent: clicking an item opens the detail activity
+        holder.itemView.setOnClickListener {
+            onItemClick(mood)
         }
     }
 
@@ -55,6 +60,8 @@ class MoodAdapter : RecyclerView.Adapter<MoodAdapter.MoodViewHolder>() {
         this.moods = moods
         notifyDataSetChanged()
     }
+
+    fun getMoodAt(position: Int): MoodEntry = moods[position]
 
     private fun formatMoodType(type: String): String {
         return type.replace("_", " ").split(" ")
