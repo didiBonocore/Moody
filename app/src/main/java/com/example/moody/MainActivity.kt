@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Set up RecyclerView with click listener (explicit intent to detail activity)
+        // Set up RecyclerView with click listener
         val recyclerView = findViewById<RecyclerView>(R.id.moodRecyclerView)
         adapter = MoodAdapter { mood ->
             val intent = Intent(this, MoodDetailActivity::class.java).apply {

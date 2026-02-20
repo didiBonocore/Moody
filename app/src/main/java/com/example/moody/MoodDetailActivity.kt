@@ -6,6 +6,7 @@ import android.text.format.DateUtils
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 
 class MoodDetailActivity : AppCompatActivity() {
@@ -13,6 +14,8 @@ class MoodDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mood_detail)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Retrieve mood data from the explicit intent extras
         val emoji = intent.getStringExtra("emoji") ?: ""
@@ -60,5 +63,13 @@ class MoodDetailActivity : AppCompatActivity() {
             }
             startActivity(Intent.createChooser(shareIntent, "Share your mood"))
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
